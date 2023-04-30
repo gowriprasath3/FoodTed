@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.d-xs-block {
+    display: block !important;
+}
+
+/* ngx-intl-tel-input{
+    /* margin: 10000px !important; 
+    width:  !important;
+    height: 100px;
+} 
+/* .iti--allow-dropdown input[type=tel]{
+   width: flex !important;
+} */
+
+/* .iti ,
+.iti--allow-dropdown{
+} */
+
+#phone1{
+    height: 27px;
+    width: 100%;
+    box-shadow: #fd7e14;
+   
+}
+.dropdown{
+    height: 35px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+ 
+}
+td input{
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    height: 35px;
+ 
+    
+}
+
+input[type=text]:focus{
+    outline: 2px solid #0dcaf0;     /* oranges! yey */
+  }

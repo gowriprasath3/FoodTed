@@ -1,0 +1,247 @@
+<div class="bg">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <div class="row" style="margin-top: 30px;margin-bottom: 30px">
+
+        <div class="col-12 col-lg-6  image">
+            <!-- <img style="opacity: 0;"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbSEYTmUVKj-rYuuLfn93-vPc7M6gKBfnE2w&usqp=CAU"
+            alt="" srcset=""> -->
+        </div>
+
+        <div class="  col-sm-12 col-md-12 col col-lg-6 col-12">
+            <div style="margin: 100px; font-family: RaleWayMedium;">
+                <h1>Subscribe</h1>
+                <p> Join our newsletter to receive exclusive news and information</p>
+                <div style="width: 50px; height: 5px;margin-bottom: 50px; background: green;"></div>
+
+                <form [formGroup]="subscribeForm">
+                    <label for="name">Name</label><span style="color: red;">*</span>
+                    <div class=" input-group">
+
+                        <div class=" name form-group ">
+                            <input [(ngModel)]="user.firstName" type="text" id="firstName" [pattern]="fNamePattern"
+                                class="form-control" formControlName="firstName" placeholder="First Name">
+                            <small><label class="subname" for="firstName">First</label><span
+                                    style="color: red;">*</span></small>
+                            <div *ngIf="subscribeForm.get('firstName').touched && subscribeForm.get('firstName').invalid"
+                                class="text-danger">
+                                <small
+                                    *ngIf="subscribeForm.get('firstName').errors && subscribeForm.get('firstName').errors['required']">
+                                    This field is required.</small>
+                                <small
+                                    *ngIf="subscribeForm.get('firstName').errors && subscribeForm.get('firstName').errors['pattern']">
+                                    Name is invalid.</small>
+                            </div>
+
+                        </div>
+                        <!-- <div style="margin-left: 30px;">
+                        </div> -->
+                        <div class=" name form-group ">
+
+                            <input [(ngModel)]="user.lastName" placeholder="Last Name" type="text" id="lastName"
+                                class="form-control" formControlName="lastName">
+                            <small> <label class="subname" for="lastName">Last</label></small>
+                            <div *ngIf="subscribeForm.get('lastName').touched && subscribeForm.get('lastName').invalid"
+                            class="text-danger">
+                            <small
+                                *ngIf="subscribeForm.get('lastName').errors && subscribeForm.get('lastName').errors['pattern']">
+                                Name is invalid.</small>
+                        </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label><span style="color: red;">*</span>
+                        <input [(ngModel)]="user.email" placeholder="Enter your email.." type="text" id="email"
+                            class="form-control" formControlName="email">
+                        <div *ngIf="subscribeForm.get('email').touched && subscribeForm.get('email').invalid"
+                            class="text-danger">
+                            <small
+                                *ngIf="subscribeForm.get('email').errors && subscribeForm.get('email').errors['required']">
+                                This field is required.</small>
+                            <small
+                                *ngIf="subscribeForm.get('email').errors && subscribeForm.get('email').errors['email']">
+                                Email is invalid.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of birth</label><span style="color: red;">*</span>
+                        <input [(ngModel)]="user.dob" type="date" name="dob" id="dob" class="form-control"
+                            formControlName="dob">
+                        <small *ngIf="subscribeForm.get('dob').invalid && subscribeForm.get('dob').touched"
+                            class="text-danger">This field is required
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label><span style="color: red;">*</span>
+                        <div class="form-control" style="padding: 0px;margin: 0px;">
+                            <label style="padding: 0px;" class="radio-inline"
+                                style="margin-right: 5px;margin-left: 5px;">
+                                <input style="padding: 0px;margin: 0px;" type="radio" value="male" name="gender"
+                                    formControlName="gender" [(ngModel)]="user.gender">
+                                Male</label>
+                            <label style="padding: 0px;margin: 0px;" class="radio-inline">
+                                <input style="padding: 0px;margin: 0px;" type="radio" value="female" name="gender"
+                                    formControlName="gender" [(ngModel)]="user.gender">
+                                Female</label>
+                        </div>
+                        <small *ngIf="subscribeForm.get('gender').invalid && subscribeForm.get('gender').touched"
+                            class="text-danger">This field is required
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone number</label><span style="color: red;">*</span>
+                        <br>
+                        <ngx-intl-tel-input id="phoneNumber" class="form-contol" panelClass="phoneInput"
+                            [preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
+                            [enableAutoCountrySelect]="false" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                            [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India" [maxLength]="15"
+                            [phoneValidation]="true" name="phoneNumber" formControlName="phoneNumber"
+                            [(ngModel)]="user.phoneNumber"></ngx-intl-tel-input>
+                        <small
+                            *ngIf="subscribeForm.get('phoneNumber').invalid && subscribeForm.get('phoneNumber').touched"
+                            class="text-danger">This field is required.
+                        </small>
+
+                    </div>
+
+
+
+
+
+                    <br>
+
+                    <button [disabled]="subscribeForm.invalid" (click)="subscribe(subscribeForm)"
+                        class="btn btn-success">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div style="font-family: RaleWayMedium;">
+
+        <section class="bg-light p-5">
+
+            <div class="table-responsive" id="no-more-tables">
+
+                <table *ngIf="Tablevisibility" class="table bg-white">
+                    <thead class="bg-dark text-light">
+                        <tr>
+                            <th scope="col">S.No</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th class="d-none" scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Date of Birth</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Mobile number</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="tableForm" *ngFor="let user of userArray ; let i = index">
+
+                        <tr>
+
+
+                            <td class="d-none d-md-table-cell" data-title="S.No">{{i+1}}</td>
+
+                            <td data-title="First Name" *ngIf="showForm && i === insertIndex; else others">
+                                <input type="text" [(ngModel)]="updateUser.firstName" placeholder="First Name"
+                                    name="firstName" required>
+                            </td>
+
+                            <td data-title="Last Name" *ngIf=" showForm && i === insertIndex">
+                                <input type="text" [(ngModel)]="updateUser.lastName" placeholder="Last name"
+                                    name="lastName">
+                            </td>
+
+                            <td data-title="Email" *ngIf="showForm && i === insertIndex">
+                                <input type="text" [(ngModel)]="updateUser.email" placeholder="Enter Email" name="email"
+                                    required>
+                            </td>
+
+                            <td data-title="Date of Birth" *ngIf="showForm && i === insertIndex">
+                                <input type="date" [(ngModel)]="updateUser.dob" placeholder="Date of Birth" name="dob"
+                                    required>
+                            </td>
+                            <td data-title="Gender" *ngIf="showForm && i === insertIndex">
+                                <select class="dropdown" style="padding: 0px;margin: 0px;"
+                                    [(ngModel)]="updateUser.gender">
+                                    <option selected disabled>{{updateUser.gender}}</option>
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
+                                </select>
+                            </td>
+                            <td data-title="Mobile Number" *ngIf="showForm && i === insertIndex">
+                                <ngx-intl-tel-input class="phoneForm" id="phone1"
+                                    [preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
+                                    [enableAutoCountrySelect]="false" [enablePlaceholder]="true"
+                                    [searchCountryFlag]="true"
+                                    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                    [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
+                                    [maxLength]="15" [phoneValidation]="true" name="phoneNumber"
+                                    [(ngModel)]="updateUser.phoneNumber">
+                                </ngx-intl-tel-input>
+                            </td>
+
+                            <td data-title=" " class="d-none d-md-table-cell" *ngIf="showForm && i === insertIndex"> <i
+                                    style="margin-right: 10px;" (click)="saveUser(i)" class="fa fa-floppy-disk"></i> <i
+                                    (click)="cancel(i,user)" class="fa fa-xmark"></i></td>
+                            <td data-title=" " class="d-block d-md-none" *ngIf="showForm && i === insertIndex">
+                                <button type="button" style="margin-right: 10px;" (click)="saveUser(i)"
+                                    class="btn btn-success">Save</button>
+                                <button type="button" (click)="cancel(i,user)" class="btn btn-danger">Cancel</button>
+                            </td>
+
+
+                            <ng-template #others>
+
+                                <td class="d-none d-md-table-cell" data-title="First Name">{{user.firstName}}</td>
+                                <td class="d-none d-md-table-cell" data-title="Last Name">{{user.lastName}}</td>
+                                <td class="d-block d-md-none" data-title="Name">{{user.firstName}}
+                                    {{user.lastName}}</td>
+                                <td data-title="Email">{{user.email}}</td>
+                                <td data-title="Date of Birth">{{user.dob}}</td>
+                                <td data-title="Gender">{{user.gender}}</td>
+                                <td data-title="Mobile number">{{user.phoneNumber.number}}</td>
+                                <td data-title="" class="d-none d-md-table-cell"><i style="margin-right: 10px;"
+                                        class="fa fa-pen" (click)="update(i,user)"></i>
+                                    <i class="fa fa-trash-can" (click)="delete(i)"></i>
+                                </td>
+
+                                <td data-title=" " class="d-block d-md-none" style="justify-content: space-between;padding: 0px;">
+                                    <button type="button" style="margin-right: 10px;" (click)="update(i,user)"
+                                        class="btn btn-success">Update</button>
+                                    <button type="button" (click)="delete(i)" class="btn btn-danger">Delete</button>
+                                </td>
+
+
+                            </ng-template>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+
+</div>

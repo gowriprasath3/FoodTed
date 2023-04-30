@@ -1,0 +1,59 @@
+<div class="new">
+   
+
+    <app-landing-page></app-landing-page>
+
+    <div class="container" style="margin-top: 200px;">
+        <div class="row ">
+            <div *ngFor="let eachreciepe of reciepeList" class=" col-md-6 col-lg-4 col-12 ">
+                <app-card [reciepe]="eachreciepe"></app-card>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="title-card">
+                <h1>Taste <br> Makers</h1>
+                Feast your eyes on our latest recipes!
+                <div style="width: 60px; height: 5px;margin-bottom: 50px; margin-top: 20px; background: green;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 10px;">
+
+        <div class="row search">
+            <div class="col-sm-4  col-lg-2 col-4">
+                <select class="dropdown" name="dropdown" id="dropdown" [(ngModel)]="selectedCategory">
+                    <option selected disabled>Category</option>
+                    <option value="Entree">Entree</option>
+                    <option value="Pasta">Pasta</option>
+                    <option value="Salad">Salad</option>
+                </select>
+            </div>
+
+            <div class="col-sm-8 col-lg-10 col-8">
+                <div>
+                    <input type="text" class="searchTerm" placeholder="Find a reciepe.." [(ngModel)]="filteredString">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row ">
+            <div *ngFor="let eachreciepe of reciepeList | filterReciepe: filteredString :selectedCategory"
+                class=" col-md-6 col-lg-4 col-12 ">
+                <app-card [reciepe]="eachreciepe"></app-card>
+            </div>
+        </div>
+    </div>
+
+    <app-subscribe></app-subscribe>
+    <!-- <app-table></app-table> -->
+
+
+
+</div>

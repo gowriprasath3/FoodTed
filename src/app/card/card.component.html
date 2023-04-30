@@ -1,0 +1,15 @@
+<div class="bg">
+    <div class="card">
+        <div class="imgBx">
+            <img class="image" src="{{reciepe.imageUrl}}">
+        </div>
+        <p class="title">
+            {{reciepe.title}}
+        </p>
+        <p class="desc">
+            {{(readMore) ? reciepe.content : reciepe.content | slice:0:150}} <span *ngIf="!readMore">...</span>
+        </p>
+        <button style="justify-content: center;" *ngIf="readMore" (click)="readMore=false" type="button" class=" btn  btn-secondary">Read less</button>
+        <button style="justify-content: center;" *ngIf="!readMore" (click)="readMore=true" type="button" class=" btn  btn-secondary">Read more</button>
+    </div>
+</div>

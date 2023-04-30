@@ -1,0 +1,73 @@
+@import '../../styles/fonts.css';
+
+.bannerImage{
+
+   
+ 
+   width: 100%;
+   background-image:linear-gradient(#000000bb, #000000bb), url("https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80");
+  //  filter: blur(2px);
+    height: 100vh ;
+   background-attachment: fixed;
+    background-size: cover;
+    
+  
+  }
+  
+  .title-card{
+    background-color: white;
+    position: absolute;
+    top: calc(100vh - 30px);
+    left: 40px;
+    height: 200px;
+    width:80%;
+    padding-left: 30px;
+    padding-top: 20px;
+    
+  }
+  
+  
+  
+
+.heading{
+    color: white;
+    font-weight: bolder;
+    font-size: 90px;
+    font-family: RalewayBold;    
+}
+.heading2{
+  color: white;
+  font-weight: bolder;
+  font-size: 30px;
+  font-family: RalewayBold;
+  padding-right: 40px;
+  color: green;
+
+  
+}
+.image{
+  margin-top: 20px;margin-left: 80px;
+}
+@media screen and (max-width:600px) {
+  .image{
+    margin-left: 30px;
+  }
+}
+
+
+@media screen and (max-width:900px){
+  .heading{
+    display: none;
+  }
+  .heading2{
+    display: none;
+  }
+  
+
+}
+@media screen and (max-width:1000px){
+  .title-card{
+    left: 0px;
+  }
+    
+}
