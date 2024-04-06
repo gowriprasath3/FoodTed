@@ -10,7 +10,7 @@ export class AppComponent implements AfterViewInit{
 
   @ViewChild('user') user:any;
 loading=true;
-  title = 'foodsense';
+  title = 'FoodTed';
 
   constructor(private cd: ChangeDetectorRef){
 
