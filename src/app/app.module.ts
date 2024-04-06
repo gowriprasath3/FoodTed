@@ -17,9 +17,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
-import { TableComponent } from './table/table.component';
-
-
 
 @NgModule({
   declarations: [
@@ -29,8 +26,7 @@ import { TableComponent } from './table/table.component';
     LandingPageComponent,
     SubscribeComponent,
     SearchComponent,
-    FilterReciepePipe,
-    TableComponent,
+    FilterReciepePipe
     
   ],
   imports: [
